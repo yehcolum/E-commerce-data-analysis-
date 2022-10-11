@@ -94,13 +94,48 @@ Again, the urban centers of Sao Paulo, Rio de Janerio, and Minas Gereis show the
 Freight value is much higher for Sao Pualo, Rio, and Minas Gereis. This coincides with the customer count examined earlier. The South east appears to be a bulk of Olist's freight value.
 # Time Series Forecasting of Demand: Customer and Payment Value
 <br>
-ts_weekly.plot(
+
+<img width="783" alt="Screen Shot 2022-10-11 at 10 26 10 AM" src="https://user-images.githubusercontent.com/87211473/195159227-8de7e571-270f-4789-b0ae-af7e45f47b99.png">
+
+
 <br>
 
 Preliminary visualization of our weekly sales data shows a sudden drop to zero in sales. The model may not capture the sudden drop in a train-test split. Validation will not be as clear in this situation due to the outlier event.
 <br>
+<img width="198" alt="Screen Shot 2022-10-11 at 10 14 09 AM" src="https://user-images.githubusercontent.com/87211473/195157128-aa785025-0512-4eed-9e1d-af404cc7a313.png">
+<br>
 Average weekly sales revenue stands at 188014.48(BRL). However, the standard deviation of sales revenue = 134951.3(BRL), which is a relatively high. The volatility in sales data is expected, given our previous visualization.
-BLAH BLAH to be cont., 
+<br>
+## Baseline Time Series Forecasts
+
+<img width="448" alt="Screen Shot 2022-10-11 at 10 21 03 AM" src="https://user-images.githubusercontent.com/87211473/195158214-34c26510-4faa-4f05-8a6a-86ac15f16a17.png">
+<img width="461" alt="Screen Shot 2022-10-11 at 10 16 17 AM" src="https://user-images.githubusercontent.com/87211473/195157752-aa24f8c1-cd6f-4edc-814d-b4b241165b40.png">
+<br>
+Model returned 4 AR terms, 1 MA term, and 1 sigma term. AIC was minimized to 2088.818 using the auto_arima package's stepwise search.
+<br>
+Unusually, our data shows weekly sales dropping off a cliff to zero. This "outlier" event causes some difficulty in our SARMIAX modeling.
+<br>
+
+Splitting the data into training and test sets results in the model predicting inaccuratley over the test set. Basically, a 80/20 train-test split results in a SARMIAX model that completely misses the sudden downturn to zero sales. This is because the training data alone does not indicate or suggest such a drastic drop in sales to zero.
+<br>
+
+In fact, a quick google search of Olist 2018 revenue shows no sign of a drop to zero sales. Therefore, this anomaly is probably the result of data collection issues. It is most likely that the data collection of sales revenue was not fully or properly recorded in the dataset provided.
+<br>
+
+Nevertheless, data collection is outside the scope of this project. Therefore, I will re-train the model on the entire dataset. This should yield a better picture of future sales, since the training will take into account the sudden drop in sales that plagues our model validation.
+## Final Time Series Forecasts
+<img width="425" alt="Screen Shot 2022-10-11 at 10 22 43 AM" src="https://user-images.githubusercontent.com/87211473/195158517-3ff4ef5b-f61b-4a20-87dd-45a922fe5d1b.png">
+
+<img width="437" alt="Screen Shot 2022-10-11 at 10 23 37 AM" src="https://user-images.githubusercontent.com/87211473/195158628-855b1737-f754-4ee9-842b-a8df1c868817.png">
+<br>
+Model returned 2 AR terms, 1 sigma term, and 2 MA terms (2, 1, 2). AIC was minimized to 2623.873 through auto_arima package's stepwise search.
+
+<br>
+The model trained on the entire dataset is visualized above with the 95% confidence interval of the predictions shaded in grey. The model predicts a bounce back of sales, which stabilize around 147K.
+<br>
+
+However, the prediction line should not be considered alone. The confidence interval of the prediction provides a range that weekly predictions should fall into according to the model. The lower side of the interval indicates zero or near zero sales. The upper side indicates a possible return to healthier sales numbers. That being said, confidence intervals do not represent an "upper" situation vs. a "lower" situation. They simply represent a range that the model is 95% confident the true value of the prediction lies within.
+
 
 # Business Recommendations: Capital Allocations, Customer Lifetime Value, and Reccuring Revenue
 ## Geospatial Recommendations
