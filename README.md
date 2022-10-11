@@ -20,6 +20,8 @@ This analysis seeks to analyze sales data across Brazils' states to drive action
 Finally, I will provide recommendations on where to allocate capital to best position the firm to provide value for its customers.
 
 # The Data
+![HRhd2Y0](https://user-images.githubusercontent.com/87211473/195154331-b8d622e2-62b9-4de6-9be5-753a248d9b47.png)
+<br>
 
 The data schema above visualizes the data sets we will be analyzing. Foreign keys are indicated by the arrows.
 <br>
@@ -41,6 +43,9 @@ To this end, I will now create data frames to look at each characteristic.
 Frequency does not seem to add any meaningful signal for our clusters, as most customers have a frequency of 1. The model returned 5 clusters:
 <br>
 
+<img width="417" alt="Screen Shot 2022-10-11 at 9 58 50 AM" src="https://user-images.githubusercontent.com/87211473/195154087-d0fec69d-495c-45fd-bfa2-2d70580fe8be.png">
+<br>
+
 0. Middle of the road monetary value with similar recency to cluster. These customers are similar to cluster 1, but have much higher average monetary value. These customers represent our second largest cluster by customer count, and second most valuable customer segment as a percentage of sales revenue.
 <br>
 
@@ -59,7 +64,34 @@ Overall, our clusters reveal an underlying problem in Olist's customer base: <b>
 
 # Geospatial Analysis
 How do customers, sales, delivery times, and more vary across the regions of Brazil? This section seeks to visualize the geography of our ecommerce data.
+## Customer Count
 
+![newplot (1)](https://user-images.githubusercontent.com/87211473/195154736-5e6d7309-a756-42ff-87ab-8f87624aa6d8.png)
+<br>
+Sao Paulo, Minas Gereis, and Rio de Janeiro hold the majority of customers. Sao Paulo appears to be the center of operations for Olist; the state boasts 48.7K customers. This is significantly higher than any other region. More rural areas in the north appear to have much fewer customers than the more urban southeast.
+## Review Score
+![newplot](https://user-images.githubusercontent.com/87211473/195154835-89cf4341-4b93-44e2-9e69-c0e06c47d422.png)
+<br>
+Review scores are at or above 4.0 in the south. The middle and north of the country experience lower review scores, probably due to the more rural and remote deliveries.
+## Delivered
+![newplot (5)](https://user-images.githubusercontent.com/87211473/195155078-b4706a99-27a5-43be-90af-3609f4632b8f.png)
+<br>
+Delivery rates are fairly consistent (>90%) across the country. RR stands out at 88%, indicating this northern rural region has delivery issues. 
+
+## Seller Count
+
+![newplot (4)](https://user-images.githubusercontent.com/87211473/195155140-aab02c74-d35f-47d1-ae4f-4ea313422008.png)
+<br>
+Correlating with customer count, sellers are also concentrated in the south of the country. Sao Pualo holds a vast majority of sellers at 82.6K. For sellers, Sao Paulo is the most important region.
+## Sales Revenue
+![newplot (3)](https://user-images.githubusercontent.com/87211473/195155224-09fe42f4-28a4-4ab6-b38a-3e771ef5ebf4.png)
+<br>
+Again, the urban centers of Sao Paulo, Rio de Janerio, and Minas Gereis show the largest numbers. A majority of revenue comes from these three regions. Revenue drops as one progresses north through the country.
+## Freight Value
+
+![newplot (2)](https://user-images.githubusercontent.com/87211473/195155299-45a74fb4-c3ef-409b-80ef-7ea246be6876.png)
+<br>
+Freight value is much higher for Sao Pualo, Rio, and Minas Gereis. This coincides with the customer count examined earlier. The South east appears to be a bulk of Olist's freight value.
 # Time Series Forecasting of Demand: Customer and Payment Value
 <br>
 ts_weekly.plot(
