@@ -1,4 +1,4 @@
-# E-commerce-data-analysis-
+# E-commerce-data-analysis
 <br>
 What will Olist's future sales look like? From which kind of customer and from which region will they occur?
 <br>
@@ -25,7 +25,7 @@ Finally, I will provide recommendations on where to allocate capital to best pos
 
 The data schema above visualizes the data sets we will be analyzing. Foreign keys are indicated by the arrows.
 <br>
-
+https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
 # Recency, Frequency, Monetary Clustering
 RFM analysis examines customers across 3 characteristics: recency, frequency, and monetary value.
 <br>
@@ -175,3 +175,8 @@ The next step in executing on the recommendations provided would be a comprehens
 <br>
 
 Second, the success of our customer lifetime value campaigns should be monitored and evaluated. Relevant success metrics include average order value, frequency, recency, and customer lifetime value. Meaningful lift in these metrics would signal success.
+
+# Repository Structure
+├── README.md <- The top-level README for reviewers of this project
+├── EcommerceDataAnalysis.ipynb <- Narrative documentation of analysis in Jupyter notebook
+├── Presentation_nontechnical.pdf <- PDF version of project presentation
